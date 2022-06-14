@@ -1,3 +1,3 @@
 # Rock Paper Scissors Lizard Spock
 
-![](images/:D)
+![](images/Slide%2016_9%20-%203.png)
