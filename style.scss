@@ -1,0 +1,195 @@
+$background :#270245;
+$backgroundSlightly:#540a91;
+$colorViolet :#871a85;
+$colorRed: #ff2941;
+$colorYellow: #feff38;
+$colorPink:#fe18d3;
+$colorBrlue:#4206f1;
+
+$titleFont:'Tourney', cursive;
+$font:'Roboto', sans-serif;
+
+@mixin flex($justify,$direction) {
+    display: flex;
+    align-items: center;
+    justify-content: $justify;
+    flex-direction: $direction;
+}
+
+.btn {
+    background: #270245;
+    border: 3px solid $colorYellow;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    cursor: pointer;
+    svg {
+        height: 60px;
+        width: 60px;
+        color: $colorYellow;
+    }
+}
+
+body{
+background: $background;
+height: 100vh;
+width: 100vw;
+overflow: hidden;
+@include flex(center,row );
+position: relative;
+}
+
+.border-big{
+    width: 96vw;
+    height: 90vh;
+    border: 3px solid $colorPink;
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    .result-container{
+        font-family: $titleFont;
+        position: absolute;
+        top: 5px;
+        z-index: 300;
+        width: 100%;
+        @include flex(center,row );
+        height: 200px;
+        .final-result{
+        text-align: center;
+        color: $colorBrlue;
+        -webkit-text-stroke: 2px $colorPink;
+        text-shadow:2px 2px 10px $colorPink ;
+             font-size: 110px;
+        line-height: 70px;
+        font-weight: bold;
+        max-width: 70%;
+        }
+    }
+    .ground{
+        position: absolute;
+        bottom: 0;
+        z-index: 30;
+        height: 300px;
+        background: $background;
+        width: 100%;
+        @include flex(space-between,row);
+        font-size: 30px;
+        font-family: $font;
+        .result-other{
+            width: 300px;
+            height: 150px;
+            box-shadow: 2px 2px 10px;
+            margin: 0 50px; 
+            border-radius: 10px;
+            text-align: center;
+          
+        }
+        .pc-result-container {
+            border: 3px solid $colorBrlue; 
+            box-shadow: 2px 2px 10px $colorBrlue;
+        }
+        .user-result-container {
+            border: 3px solid $colorRed; 
+            box-shadow: 2px 2px 10px $colorRed;
+        }
+        .pc-result-display{
+            color:$colorBrlue;
+        };
+        .user-result-display{
+            color:$colorRed;
+        }
+    }
+    .sun{
+        position: absolute;
+        height: 700px;
+        width: 700px;
+        border-radius: 50%;
+        top: 10px;
+        background: linear-gradient(180deg,$colorViolet,$colorRed, $colorYellow );
+        left: 50%;
+        transform: translate(-50%);
+        z-index: 5;
+    }
+    .city{
+        position: absolute;
+        left: 0;
+        top:200px;
+        z-index: 10;
+    }
+    .inside {
+        width: 100%;
+        height: 600px;
+        position: relative;
+        background: linear-gradient(180deg, $background, $backgroundSlightly);
+     .star {
+        position: absolute;
+        height: 3px;
+        background-color: #ffffffc5;
+        width: 3px
+    }   
+    }
+    .buttons-container{
+        position: absolute;
+        z-index: 90;
+   bottom: 90px;
+    height: 450px;
+    width: 450px;
+    border-radius: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    @include flex(space-between,column);
+    .restart-template {
+        position: absolute;
+        height: 100%;
+        width: 100%; 
+        pointer-events: none;
+        @include flex(center,row );
+        .restart-button{
+            display: none;
+        }
+ &.active {
+       pointer-events: all;
+       .restart-button{
+       display: inline-block;
+       width: 150px;
+       height: 50px;
+       border: 2px solid $colorYellow;
+       text-transform: uppercase;
+       background:$background;
+       font-size: 20px;
+       font-weight: 400;
+       font-family: $font;
+       color: $colorYellow;
+       cursor: pointer;
+       }
+        }
+    }
+    .current-result-container{
+        height: 100px;
+        width: 170px;
+        text-align: center;
+           .current-result {
+        font-family: $font;
+        text-transform: capitalize;
+        color: $colorYellow;
+        font-size: 30px;
+        font-weight: 300;
+    } 
+    }
+    .first-row,
+    .second-row,
+    .third-row{
+        width: 100%;
+        height: 110px;
+        text-align: center;
+        @include flex(space-between,row);
+    }
+    .first-row{
+        justify-content: center;
+    }
+    .third-row{
+        width: 80%;
+    }
+    }
+ }
+
